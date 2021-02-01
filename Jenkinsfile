@@ -25,9 +25,9 @@ pipeline {
                 success {
                     archiveArtifacts 'coverage/'
                 }
-                $class: 'CloverPublisher',
+                clover(
                 cloverReportDir: 'target/site',
-                cloverReportFileName: 'clover.xml',
+                cloverReportFileName: 'clover.xml')
             }
         }
     }
