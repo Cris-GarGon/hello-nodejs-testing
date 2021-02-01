@@ -19,7 +19,7 @@ pipeline {
                 sh 'yarn run ci-test'
             }
             post {
-                sucess {
+                success {
                     archiveArtifacts 'coverage/'
                 }
             }
