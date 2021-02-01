@@ -29,9 +29,9 @@ pipeline {
             post {
                 success {
                     archiveArtifacts 'coverage/'
-                }
-                always{
                     step([$class: "TapPublisher", testResults: "test.tap"])
+                }
+
                 }
 
             }
