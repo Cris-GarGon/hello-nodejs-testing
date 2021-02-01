@@ -1,33 +1,31 @@
 pipeline {
     agent any
     tools{
-        nodejs "NodeJS"
+        nodejs "nodejs-14.15.4"
     }
 
     stages{ 
         stage('Dependencias') {
             steps {
-                sh 'npm install'
+                sh 'yarn'
             }
         }
 
         stage('test') {
             steps {
-                sh 'npm run test'
+                sh 'yarn run test'
             }
         }
 
         stage('ci-test') {
             steps {
-                sh 'npm run ci-test'
+                sh 'yarn run ci-test'
             }
             post {
                 success {
                     archiveArtifacts 'coverage/'
                 }
-                clover(
-                cloverReportDir: 'target/site',
-                cloverReportFileName: 'clover.xml')
+
             }
         }
     }
