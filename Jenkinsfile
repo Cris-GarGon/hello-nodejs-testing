@@ -30,6 +30,10 @@ pipeline {
                 success {
                     archiveArtifacts 'coverage/'
                 }
+                step([$class: "TapPublisher", testResults: "test.tap"])
+                step([$class: 'CloverPublisher',
+                cloverReportDir: 'target/site',
+                cloverReportFileName: 'clover.xml'])
 
             }
         }
