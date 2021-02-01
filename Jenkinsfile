@@ -18,6 +18,11 @@ pipeline {
             steps {
                 sh 'yarn run ci-test'
             }
+            post {
+                sucess {
+                    archiveArtifacts 'coverage/'
+                }
+            }
         }
     }
 }
