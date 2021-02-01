@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('ci-Test') {
+        stage('ci-test') {
             steps {
                 sh 'yarn run ci-test'
             }
