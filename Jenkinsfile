@@ -1,11 +1,16 @@
 pipeline {
     agent any
+    
+    options{
+        ansiColor('xterm')
+    }
+
     tools{
         nodejs "nodejs-14.15.4"
     }
 
     stages{ 
-        stage('Dependencias') {
+        stage('Build') {
             steps {
                 sh 'yarn'
             }
