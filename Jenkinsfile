@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('test') {
             steps {
                 sh 'yarn run test'
             }
