@@ -31,10 +31,7 @@ pipeline {
                     archiveArtifacts 'coverage/'
                 }
                 always{
-                    step([$class: "TapPublisher", testResults: "test.tap"])
-                    step([$class: 'CloverPublisher',
-                    cloverReportDir: 'target/site',
-                    cloverReportFileName: 'clover.xml'])
+                    step([$class: "TapPublisher", testResults: "test.tap")
                 }
 
             }
