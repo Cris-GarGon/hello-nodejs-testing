@@ -1,10 +1,10 @@
 pipeline {
     agent any
+
     stages{ 
         stage('Dependencias') {
             steps {
                 sh 'yarn'
-                }
             }
         }
 
