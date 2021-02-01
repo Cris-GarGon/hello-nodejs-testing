@@ -27,7 +27,7 @@ pipeline {
                 sh 'yarn run ci-test'
             }
             post {
-                success {
+                always {
                     archiveArtifacts 'coverage/'
                     step([$class: "TapPublisher", testResults: "test.tap"])
                     step([$class: 'CloverPublisher',
@@ -41,9 +41,6 @@ pipeline {
                 }
             }
 
-                }
-
-            }
         }
     }
 }
