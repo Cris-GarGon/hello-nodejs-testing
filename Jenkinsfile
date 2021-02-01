@@ -25,6 +25,9 @@ pipeline {
                 success {
                     archiveArtifacts 'coverage/'
                 }
+                $class: 'CloverPublisher',
+                cloverReportDir: 'target/site',
+                cloverReportFileName: 'clover.xml',
             }
         }
     }
