@@ -7,19 +7,19 @@ pipeline {
     stages{ 
         stage('Dependencias') {
             steps {
-                sh 'yarn'
+                sh 'npm install'
             }
         }
 
         stage('test') {
             steps {
-                sh 'yarn run test'
+                sh 'npm run test'
             }
         }
 
         stage('ci-test') {
             steps {
-                sh 'yarn run ci-test'
+                sh 'npm run ci-test'
             }
             post {
                 success {
