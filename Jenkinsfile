@@ -31,7 +31,7 @@ pipeline {
                     archiveArtifacts 'coverage/'
                 }
                 always{
-                    step([$class: "TapPublisher", testResults: "test.tap")
+                    step([$class: "TapPublisher", testResults: "test.tap"])
                 }
 
             }
