@@ -43,5 +43,19 @@ pipeline {
             }
 
         }
+        stage('Security') {
+            steps {
+                sh 'trivy filesystem . --format json --output trivy-results.json'
+            }
+            post {
+                always {
+                    recordIssues(
+                        enabledForFailure: true,
+                        tool: trivy(pattern: 'trivy-results.json')
+                    )
+                }
+            }
+        }
+
     }
 }
