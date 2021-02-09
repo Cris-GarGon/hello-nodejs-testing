@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Security') {
             steps {
-                sh 'trivy filesystem . --format json --output trivy-results.json'
+                sh 'trivy filesystem --format json --output trivy-results.json .'
             }
             post {
                 always {
